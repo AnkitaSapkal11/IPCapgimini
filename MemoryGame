@@ -1,0 +1,48 @@
+import java.util.*;
+
+public class MemoryGame {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input 
+        int N = scanner.nextInt();
+
+        
+        int[] numbers = new int[N];
+        for (int i = 0; i < N; i++) {
+            numbers[i] = scanner.nextInt();
+        }
+
+       
+        int Q = scanner.nextInt();
+
+      
+        for (int i = 0; i < Q; i++) {
+            
+            int query = scanner.nextInt();
+
+            
+            int count = countOccurrences(numbers, query);
+
+            // Output the result
+            if (count == 0) {
+                System.out.println("NOT PRESENT");
+            } else {
+                System.out.println(count);
+            }
+        }
+
+        scanner.close();
+    }
+
+    
+    private static int countOccurrences(int[] numbers, int query) {
+        int count = 0;
+        for (int num : numbers) {
+            if (num == query) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
